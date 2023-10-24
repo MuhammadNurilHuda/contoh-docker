@@ -17,7 +17,7 @@ docker build -t nurilhuda3333/test2:latest .
 docker run -p 5000:5000 nurilhuda3333/test2:latest
 ```
 
-Command tersebut akan menjalankan Python script di dalam Docker container.
+Command tersebut akan menjalankan Python server di dalam Docker container.
 
 Akan muncul log seperti berikut:
 
