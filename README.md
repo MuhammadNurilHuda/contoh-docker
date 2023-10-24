@@ -1,5 +1,10 @@
 # contoh-docker
 
+## Prasyarat
+
+* [x] Docker. Untuk mendownload merujuk ke [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/), atau jika menggunakan Mac bisa menggunakan Brew [`brew install docker`](https://formulae.brew.sh/formula/docker)
+* [x] Docker Compose. Untuk mendownload merujuk ke [https://docs.docker.com/compose/install/linux/#install-the-plugin-manually](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually), atau jika menggunakan Mac bisa menggunakan Brew [`brew install docker-compose`](https://formulae.brew.sh/formula/docker-compose)
+
 ## Membuat Docker Image
 
 ```shell
