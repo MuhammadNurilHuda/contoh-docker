@@ -14,23 +14,41 @@ docker build -t nurilhuda3333/test2:latest .
 ## Menjalankan Docker Image
 
 ```shell
-docker run -v $(pwd):/run nurilhuda3333/test2:latest
+docker run -p 5000:5000 nurilhuda3333/test2:latest
 ```
 
-Command tersebut akan menjalankan Docker container.
-Karena dalam `Dockerfile` kita telah membuat command berupa `echo "Belajar RUN" > 'run/README.txt'` untuk dieksekusi,
-maka kita menggunakan *Mount Volume* agar semua isi file yang ada di dalam folder `/run` di container ditulis ke *host filesystem*.
+Command tersebut akan menjalankan Python script di dalam Docker container.
 
-Kita akan mendapatkan file berupa `README.txt` di komputer kita yang berisi `Belajar RUN\n` (dengan line ending Line Feed (LF)).
+Akan muncul log seperti berikut:
+
+```shell
+ * Serving Flask app 'server'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.2:5000
+Press CTRL+C to quit
+
+```
+
+Silahkan akses [http://192.168.215.2:5000](http://192.168.215.2:5000) atau alamat yang muncul pada log di terminal Anda.
 
 ## Menggunakan Docker Compose
 
 Docker Compose mempermudah menjalankan Docker tanpa harus mengetikkan argument pada `docker` berulang kali, seperti _volumes_, _port_, dan lainnya.
 
-Berikut cara menjalankan Dockerfile dengan melakukan `docker build` terhadap `Dockerfile` jika belum pernah dijalankan sebelumnya:
+Pertama, pastikan Anda _build image_ terlebih dahulu,
+
+```shell
+docker build -t nurilhuda3333/test2:latest .
+```
+
+Command tersebut memastikan bahwa sudah ada image `nurilhuda3333/test2:latest` di komputer Anda.
+
+Kemudian jalankan.
 
 ```shell
 docker-compose -f docker-compose.yaml up
 ```
 
-Sama seperti `docker run` di atas, Anda akan mendapatkan file `README.txt`.
